@@ -9,47 +9,50 @@
  */
 int _printf(const char *format, ...)
 {
-    if (format != NULL)
-    {
-        int cp = 0, i = 0;
-        int (*mf)(va_list);
-        va_list params;
+	int cp = 0, i = 0;
+	int (*mf)(va_list);
+	va_list params;
 
-        va_start(params, format);
-        if (format[0] == '%' && format[1] == '\0' || format == NULL)
-        {
-            return (-1);
-        }
-        while (format != NULL && format[i] != '\0')
-        {
-            if (format[i] == '%')
-            {
-                if (format[i + 1] == '%')
-                {
-                    cp += putchar(format[i]);
-                    i += 2;
-                }
-                else
-                {
-                    mf = select_function(format[i + 1]);
-                    if (mf)
-                    {
-                        cp += mf(params);
-                    }
-                    else
-                    {
-                        cp = putchar(format[i]) + putchar(format[i + 1]);
-                    }
-                    i += 2;
-                }
-            }
-            else
-            {
-                cp += putchar(format[i]);
-                i++;
-            }
-        }
-        va_end(params);
-        return (cp);
-    }
+	va_start(params, format);
+	if (format[0] == '%' && format[1] == '\0' || format == NULL)
+	{
+		return (-1);
+	}
+	va_start(params, format);
+	else
+	{
+
+		while (format != NULL && format[i] != '\0')
+		{
+			if (format[i] == '%')
+			{
+				if (format[i + 1] == '%')
+				{
+					cp += putchar(format[i]);
+					i += 2;
+				}
+				else
+				{
+					mf = select_function(format[i + 1]);
+					if (mf)
+					{
+						cp += mf(params);
+					}
+					else
+					{
+						cp = putchar(format[i]) + putchar(format[i + 1]);
+					}
+					i += 2;
+				}
+			}
+			else
+			{
+				cp += putchar(format[i]);
+				i++;
+			}
+		}
+
+		va_end(params);
+		return (cp);
+	}
 }
