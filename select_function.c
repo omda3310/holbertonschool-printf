@@ -13,6 +13,8 @@ int (*select_function(char a))(va_list)
 	selec tab[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_d},
+		{"i", print_i},
 		{"%", print_percent}};
 	while (tab[i].c)
 	{
@@ -22,5 +24,6 @@ int (*select_function(char a))(va_list)
 		}
 		i++;
 	}
+	
 	return (NULL);
 }

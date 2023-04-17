@@ -17,17 +17,42 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	va_start(params, format);
 	else
 	{
-
+		va_start(params, format);
 		while (format != NULL && format[i] != '\0')
 		{
 			if (format[i] == '%')
 			{
 				if (format[i + 1] == '%')
 				{
-					cp += putchar(format[i]);
+					putchar(format[i]);
+					cp += 1;
+					i += 2;
+				}
+				else if (format[i + 1] == 'u')
+				{
+					printf("%u", va_arg(params, int));
+					i += 2;
+				}
+				else if (format[i + 1] == 'o')
+				{
+					printf("%o", va_arg(params, int));
+					i += 2;
+				}
+				else if (format[i + 1] == 'x')
+				{
+					printf("%x", va_arg(params, int));
+					i += 2;
+				}
+				else if (format[i + 1] == 'X')
+				{
+					printf("%X", va_arg(params, int));
+					i += 2;
+				}
+				else if (format[i + 1] == 'p')
+				{
+					printf("%p", va_arg(params, int *));
 					i += 2;
 				}
 				else
@@ -39,18 +64,20 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						cp = putchar(format[i]) + putchar(format[i + 1]);
+						putchar(format[i]);
+						putchar(format[i + 1]);
+						cp += 2;
 					}
 					i += 2;
 				}
 			}
 			else
 			{
-				cp += putchar(format[i]);
+				putchar(format[i]);
+				cp += 1;
 				i++;
 			}
 		}
-
 		va_end(params);
 		return (cp);
 	}
