@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
     {
         return (-1);
     }
-    if (format != NULL)
+    else
     {
         int cp = 0, i = 0;
         int (*mf)(va_list);
