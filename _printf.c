@@ -9,18 +9,14 @@
  */
 int _printf(const char *format, ...)
 {
-    if (format == NULL)
-    {
-        return (-1);
-    }
-    else
+    if (format != NULL)
     {
         int cp = 0, i = 0;
         int (*mf)(va_list);
         va_list params;
 
         va_start(params, format);
-        if (format[0] == '%' && format[1] == '\0')
+        if (format[0] == '%' && format[1] == '\0' || format == NULL)
         {
             return (-1);
         }
