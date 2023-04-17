@@ -9,6 +9,10 @@
  */
 int _printf(const char *format, ...)
 {
+    if (format == NULL)
+    {
+        return (-1);
+    }
     if (format != NULL)
     {
         int cp = 0, i = 0;
@@ -20,7 +24,7 @@ int _printf(const char *format, ...)
         {
             return (-1);
         }
-        while (format != NULL)
+        while (format != NULL && format[i] != '\0')
         {
             if (format[i] == '%')
             {
@@ -35,13 +39,12 @@ int _printf(const char *format, ...)
                     if (mf)
                     {
                         cp += mf(params);
-                        i += mf(params);
                     }
                     else
                     {
                         cp = putchar(format[i]) + putchar(format[i + 1]);
-                        i += 2;
                     }
+                    i += 2;
                 }
             }
             else
@@ -51,7 +54,6 @@ int _printf(const char *format, ...)
             }
         }
         va_end(params);
-        return (i);
+        return (cp);
     }
-    return (-1);
 }
