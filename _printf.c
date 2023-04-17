@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
                     if (mf)
                     {
                         cp += mf(params);
+                        i += mf(params);
                     }
                     else
                     {
@@ -50,7 +51,7 @@ int _printf(const char *format, ...)
             }
         }
         va_end(params);
-        return (cp);
+        return (i);
     }
     return (-1);
 }
