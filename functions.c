@@ -110,7 +110,7 @@ int print_u(va_list params)
 }
 int print_o(va_list params)
 {
-	int n = va_arg(params, int);
+	unsigned int n = va_arg(params, unsigned int);
 	printf("%o", n);
 	return (1);
 }
@@ -122,7 +122,7 @@ int print_X(va_list params)
 }
 int print_x(va_list params)
 {
-	int n = va_arg(params, int);
+	unsigned int n = va_arg(params, unsigned int);
 	printf("%x", n);
 	return (1);
 }
