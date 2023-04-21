@@ -15,6 +15,11 @@ int (*select_function(char a))(va_list)
 		{"s", print_s},
 		{"d", print_d},
 		{"i", print_i},
+		{"u", print_u},
+		{"p", print_p},
+		{"o", print_o},
+		{"x", print_x},
+		{"X", print_X},
 		{"%", print_percent}};
 	while (tab[i].c)
 	{
@@ -24,6 +29,6 @@ int (*select_function(char a))(va_list)
 		}
 		i++;
 	}
-	
+
 	return (NULL);
 }
