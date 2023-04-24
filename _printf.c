@@ -10,8 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int cp = 0, i = 0;
-	int (*mf)(va_list);
+	int cp = 0, i = 0, mf = 0;
 	va_list params;
 	if (format[0] == '%' && format[1] == '\0')
 		return (-1);
@@ -24,19 +23,19 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == '%')
 				{
-					putchar(format[i]);
+					_putchar(format[i]);
 					cp += 1;
 					i += 2;
 				}
 				else
 				{
-					mf = select_function(format[i + 1]);
+					mf = select_function(format[i + 1], params);
 					if (mf)
-						cp += mf(params);
+						cp += mf;
 					else
 					{
-						putchar(format[i]);
-						putchar(format[i + 1]);
+						_putchar(format[i]);
+						_putchar(format[i + 1]);
 						cp += 2;
 					}
 					i += 2;
@@ -44,7 +43,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				putchar(format[i]);
+				_putchar(format[i]);
 				cp += 1;
 				i++;
 			}
