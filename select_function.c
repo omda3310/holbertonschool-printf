@@ -5,30 +5,32 @@
  * *select_function - select function
  * @c: caracter
  * @va_list: arguments
- * Return: function
+ * Return: int
  */
-int (*select_function(char a))(va_list)
+int select_function(const char a, va_list params)
 {
-	int i = 0;
+	int i = 0, j = 0;
 	selec tab[] = {
-		{"c", print_c},
-		{"s", print_s},
-		{"d", print_d},
-		{"i", print_i},
-		{"u", print_u},
-		{"p", print_p},
-		{"o", print_o},
-		{"x", print_x},
-		{"X", print_X},
-		{"%", print_percent}};
-	while (tab[i].c)
+		{'c', print_c},
+		{'s', print_s},
+		{'%', print_percent},
+		{'d', print_d},
+		{'i', print_i},
+		{0, NULL}};
+	while (tab[i].c != 0)
 	{
-		if (a == tab[i].c[0])
+		if (a == tab[i].c)
 		{
-			return (tab[i].f);
+			j = j + tab[i].f(params);
+			return (j);
 		}
 		i++;
 	}
-
-	return (NULL);
+	if (tab[0].c != a)
+	{
+		putchar('%');
+		putchar(a);
+		return (2);
+	}
+	return (0);
 }
