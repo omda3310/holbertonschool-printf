@@ -1,0 +1,28 @@
+.TH _PRINTF 3 "April 2023" "0.1" "Holberton School - _printf"
+.\"
+.PP
+\&.SH NAME .B \- _printf[en] owr first printf function
+.PP
+\&.SH SYNOPSIS
+.PP
+\&.B #include \[lq]main.h\[rq] .B #include<stdio.h> .B#include<stdarg.h>
+.PP
+\&.SH DESCRIPTION .B _printf \-_printf is a custom implementation of the
+C programming function printf.
+Similar to the printf (3) \- Prints formatted data to stdout Printf
+function is often used to our program to do formatted output.
+All variants of printf function use the same formatting techniques.
+There is a string that specifies the layouts of output is call format
+specifier.
+.PP
+\&.TP .BR c : character
+.PP
+\&.TP .BR s : STRING
+.PP
+\&.TP .BR i : decimal integer
+.PP
+\&.TP .BR d : decimal integer
+.PP
+\&.TP .BR % : A % followed by another
+.PP
+written by AYED Imed <https://github.com/omda3310> 
