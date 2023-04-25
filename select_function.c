@@ -15,8 +15,7 @@ int select_function(const char a, va_list params)
 		{'s', print_s},
 		{'%', print_percent},
 		{'d', print_d},
-		{'i', print_i},
-		{0, NULL}};
+		{'i', print_i}};
 
 	if (tab[i].c == 0)
 	{
