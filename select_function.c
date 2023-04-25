@@ -26,11 +26,5 @@ int select_function(const char a, va_list params)
 		}
 		i++;
 	}
-	if (tab[0].c != a)
-	{
-		putchar('%');
-		putchar(a);
-		return (2);
-	}
 	return (0);
 }
