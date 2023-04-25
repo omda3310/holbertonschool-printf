@@ -17,6 +17,13 @@ int select_function(const char a, va_list params)
 		{'d', print_d},
 		{'i', print_i},
 		{0, NULL}};
+
+	if (tab[i].c == '\0')
+	{
+		_putchar('%');
+		_putchar(a);
+		return (2);
+	}
 	while (tab[i].c != 0)
 	{
 		if (a == tab[i].c)
