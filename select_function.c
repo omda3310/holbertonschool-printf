@@ -18,7 +18,7 @@ int select_function(const char a, va_list params)
 		{'i', print_i},
 		{0, NULL}};
 
-	if (tab[i].c == '\0')
+	if (tab[i].c == 0)
 	{
 		_putchar('%');
 		_putchar(a);
