@@ -15,16 +15,11 @@ where format can be a simple string without any specifiers or it can contain spe
 📋 Implemented format specifiers
 Specifier:	Output	Example
 c	Character	H
-s	String	Hello
+s	String	I am a string !
 d	decimal integer	100
 i	Integer	100
 %	% followed by another %	%
-b	Binary	1010
-u	Unsigned decimal int	100
-o	Unsigned octal integer	1142
-x	Unsigned Hzxadecimal (lowcase)	7fa
-X	Unsigned Hexadecimal (uppercase)	7FA
-r	Reverse a string	olleh
+
 Check the Man Page for detailed usage.
 
 🛠️ Compilation and testing
