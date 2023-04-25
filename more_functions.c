@@ -47,34 +47,3 @@ int print_i(va_list params)
 {
     return (print_d(params));
 }
-/**
-int print_u(va_list params)
-{
-    unsigned int n = va_arg(params, unsigned int);
-    printf("%u", n);
-    return (1);
-}
-int print_o(va_list params)
-{
-    unsigned int n = va_arg(params, unsigned int);
-    printf("%o", n);
-    return (1);
-}
-int print_X(va_list params)
-{
-    unsigned int n = va_arg(params, unsigned int);
-    printf("%X", n);
-    return (1);
-}
-int print_x(va_list params)
-{
-    unsigned int n = va_arg(params, unsigned int);
-    printf("%x", n);
-    return (1);
-}
-int print_p(va_list params)
-{
-    int *n = va_arg(params, int *);
-    printf("%p", n);
-    return (1);
-}*/
