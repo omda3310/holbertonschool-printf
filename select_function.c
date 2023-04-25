@@ -4,7 +4,7 @@
 /**
  * *select_function - select function
  * @c: caracter
- * @va_list: arguments
+ * @params: arguments
  * Return: int
  */
 int select_function(const char a, va_list params)
