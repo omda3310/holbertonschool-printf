@@ -12,7 +12,7 @@ int print_c(va_list params)
 	int c;
 
 	c = va_arg(params, int);
-	return (_putchar(c));
+	_putchar(c);
 	return (1);
 }
 /**
@@ -35,7 +35,6 @@ int print_s(va_list params)
 		i++;
 		return (-1);
 	}
-
 	while (s[i] != '\0')
 	{
 		_putchar(s[i]);
