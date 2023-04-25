@@ -30,6 +30,12 @@ int print_s(va_list params)
 	{
 		s = "(null)";
 	}
+	if (s[i] == '\0')
+	{
+		i++;
+		return (-1);
+	}
+
 	while (s[i] != '\0')
 	{
 		_putchar(s[i]);
